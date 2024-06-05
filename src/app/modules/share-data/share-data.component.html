@@ -1,0 +1,8 @@
+<h1 class="text-3xl font-bold underline text-center">Hello world!</h1>
+<div class="flex items-start w-[calc(90%)] gap-6 mx-auto my-4">
+  @for(item of items;track item.id){
+  <app-first-child [item]="item" (newItemEvent)="getClickedItem($event)" style="width:calc(33.33% - 1em)"></app-first-child>
+  }@empty {
+    <div class="empty_list">No Data</div>
+  }
+</div>
