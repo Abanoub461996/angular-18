@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ShareDataComponent } from './modules/share-data/share-data.component';
 import { initFlowbite } from 'flowbite';
@@ -13,7 +14,14 @@ import { initFlowbite } from 'flowbite';
 export class AppComponent {
   title = 'angular-18';
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit(): void {
-    initFlowbite();
+    if (isPlatformBrowser(this.platformId)) {
+      initFlowbite();
+    }
   }
 }
+
+
+
