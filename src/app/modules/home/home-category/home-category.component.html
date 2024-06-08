@@ -1,0 +1,8 @@
+<div>{{ category.name }}</div>
+
+@if(categoryData$){
+    @for(product of categoryData$ | async ; track product.id){
+
+        <pre>{{product.title}}</pre>
+    }
+}

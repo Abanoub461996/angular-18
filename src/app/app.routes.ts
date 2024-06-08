@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
-import { ShareDataComponent } from './modules/share-data/share-data.component';
+import { HomeComponent } from './modules/home/home.component';
+import { HomeCategoryComponent } from './modules/home/home-category/home-category.component';
+import { CategoryProductsComponent } from './modules/category-products/category-products.component';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'categories' },
   {
-    path: 'home',
-    loadChildren: () =>
-      import('./modules/share-data/data.routes').then((mod) => mod.DATA_ROUTES),
+    path: 'categories',
+    component: HomeComponent,
+  },
+  {
+    path: 'categories/:id',
+    component: CategoryProductsComponent,
   },
 ];

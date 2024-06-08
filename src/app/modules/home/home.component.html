@@ -1,0 +1,4 @@
+@for(category of categories$ | async; track category.id){
+<app-home-category [category]="category"></app-home-category>
+<hr />
+}
