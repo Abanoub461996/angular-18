@@ -9,12 +9,13 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 import { globalInterceptor } from './core/interceptors/global.interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
-    provideHttpClient(withFetch(), withInterceptors([globalInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([globalInterceptor])), provideAnimationsAsync(),
   ],
 };

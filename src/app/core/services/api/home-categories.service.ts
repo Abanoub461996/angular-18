@@ -18,9 +18,13 @@ export class HomeCategoriesService {
     params = params.append('limit', 5);
     return this.http.get(this.configUrl, { params: params });
   }
-  getHomeCategoryProducts(categoryId:string): Observable<any> {
+  getHomeCategoryProducts(categoryId: string): Observable<any> {
     let params = new HttpParams();
-    params = params.append('limit', 3);
-    return this.http.get(`${this.configUrl}/${categoryId}/products`, { params: params });
+    params = params.append('offset', 1);
+    params = params.append('limit', 5);
+
+    return this.http.get(`${this.configUrl}/${categoryId}/products`, {
+      params: params,
+    });
   }
 }

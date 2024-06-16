@@ -1,19 +1,21 @@
-import { Component, Input } from '@angular/core';
-import { Category, Products } from '../../../core/interfaces/products';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Category, Product } from '../../../core/interfaces/products';
 import { Observable } from 'rxjs';
 import { HomeCategoriesService } from '../../../core/services/api/home-categories.service';
 import { CommonModule } from '@angular/common';
+import { HomeCategoryProductsComponent } from './home-category-products/home-category-products.component';
 
 @Component({
   selector: 'app-home-category',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './home-category.component.html',
   styleUrl: './home-category.component.css',
+  imports: [CommonModule,HomeCategoryProductsComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeCategoryComponent {
   @Input() category: any;
-  categoryData$!: Observable<Products[]>;
+  categoryData$!: Observable<Product[]>;
 
   constructor(private homeCategory: HomeCategoriesService) {}
   ngOnInit(): void {

@@ -1,8 +1,19 @@
-<div>{{ category.name }}</div>
-
-@if(categoryData$){
-    @for(product of categoryData$ | async ; track product.id){
-
-        <pre>{{product.title}}</pre>
-    }
-}
+<div class="home__category__wrapper">
+  <div class="category__header">
+    <div class="category__image">
+      <img [src]="category.image" [alt]="category.name" />
+    </div>
+    <div class="category__name">
+      {{ category.name }}
+    </div>
+  </div>
+  <div class="category__products__wrapper">
+    @if(categoryData$){ @for(product of categoryData$ | async ; track
+    product.id){
+    <app-home-category-products
+      [product]="product"
+      class="category__product__sample"
+    ></app-home-category-products>
+    } }
+  </div>
+</div>
