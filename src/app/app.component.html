@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<div class="app_wrappper relative">
+  @if(isLoading){
+  <app-loader></app-loader>
+  }
+  <router-outlet></router-outlet>
+</div>
