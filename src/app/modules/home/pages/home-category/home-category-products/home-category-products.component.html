@@ -1,6 +1,6 @@
 @if(product){
 
-<mat-card class="product__sample_img">
+<mat-card class="product__sample_img" (click)="selectProduct()">
   <img
     mat-card-image
     [src]="product.images[0]"

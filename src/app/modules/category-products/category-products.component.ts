@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, concatMap, delay, filter, map } from 'rxjs';
-import { HomeCategoriesService } from '../../core/services/api/home-categories.service';
+import { concatMap, delay, filter, map } from 'rxjs';
+import { HomeCategoriesService } from '../home/home-categories.service';
 
 @Component({
   selector: 'app-category-products',

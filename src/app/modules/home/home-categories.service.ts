@@ -15,6 +15,7 @@ export class HomeCategoriesService {
 
   getHomeCategories(): Observable<any> {
     let params = new HttpParams();
+    params = params.append('offset', 2);
     params = params.append('limit', 5);
     return this.http.get(this.configUrl, { params: params });
   }
